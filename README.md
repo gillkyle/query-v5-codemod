@@ -1,15 +1,14 @@
 # query-codemod
 
-To install dependencies:
+`src/hooks.ts` shows some examples of common instances in my codebase that weren't covered, you can verify pulling this repo and running:
 
-```bash
+```
 bun install
 ```
 
-To run:
-
-```bash
-bun run index.ts
 ```
-
-This project was created using `bun init` in bun v1.0.0. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+npx jscodeshift ./src/ \
+  --extensions=ts,tsx \
+  --parser=tsx \
+  --transform=./node_modules/@tanstack/react-query/build/codemods/src/v5/remove-overloads/remove-overloads.js
+```
